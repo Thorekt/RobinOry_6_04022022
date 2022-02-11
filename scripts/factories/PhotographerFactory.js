@@ -18,6 +18,7 @@ class PhotographerFactory {
 
   getUserCardDOM() {
     const article = this.templateModel.getUserCardTemplate();
+    article.setAttribute('onclick', `window.location.href = "photographer.html?id=${this.id}"`);
     article.querySelector('img').setAttribute('src', this.picture);
     article.querySelector('h2').textContent = this.name;
     article.querySelector('.location').textContent = `${this.city}, ${this.country}`;

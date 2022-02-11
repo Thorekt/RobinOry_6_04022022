@@ -1,24 +1,29 @@
-// Mettre le code JavaScript lié à la page photographer.html
-/* async function getPhotographer() {
-    const api = new PhotographerApi("")
+async function getPhotographerFromApi(id) {
+  // Penser à remplacer par les données récupérées dans le json
+  const photographersApi = new PhotographerApi('/data/photographers.json');
+  const photographer = await photographersApi.getPhotographer(id);
 
+  // et bien retourner le tableau photographers seulement une fois
+  return (photographer);
 }
 
-async function displayData(photographers) {
-  const photographerSection = document.querySelector('.photographer');
+async function displayData(photographer) {
+  const photographersSection = document.querySelector('.photographer_section');
 
-  photographers.forEach((photographer) => {
+  photographer.forEach((photographer) => {
     const photographerModel = new PhotographerFactory(photographer);
-    const userPageDOM = photographerModel.getUserPageDOM();
-    photographerSection.appendChild(userPageDOM);
+    const userCardDOM = photographerModel.getUserCardDOM();
+    photographersSection.appendChild(userCardDOM);
   });
 }
 
 async function init() {
   // Récupère les datas des photographes
-  const { photographers } = await getPhotographer();
-  displayData(photographers);
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  const id = urlParams.get('id');
+  const photographer = await getPhotographerFromApi(id);
+  displayData(photographer);
 }
 
 init();
-*/

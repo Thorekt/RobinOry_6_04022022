@@ -8,6 +8,14 @@ class PhotographerApi extends Api {
   }
 
   async getPhotographers() {
-    return await this.get();
+    const result = await this.get();
+    return await result.photographers;
+  }
+
+  async getPhotographer(id) {
+    const result = await this.getPhotographers();
+    const photographer = result.find((element) => element.id === id);
+    console.log(photographer);
+    return photographer;
   }
 }
