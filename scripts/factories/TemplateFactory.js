@@ -1,6 +1,5 @@
 class TemplateFactory {
-  constructor() {
-  }
+  constructor() {}
 
   getUserCardTemplate() {
     const template = document.createElement('article');
