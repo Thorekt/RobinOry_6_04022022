@@ -2,10 +2,48 @@
     display: none;
 }
 
-.photograph-header {
+.photograph_header {
     background-color: #FAFAFA;
     height: 300px;
     margin: 0 100px;
+}
+
+.photograph_header div{    
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+.photograph_header .info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.photograph_header img{ 
+    border-radius: 100%;
+    width: 10em;
+    height: 10em;
+    object-fit: cover;
+}
+
+.photograph_content .gallery{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+     
+}
+
+.gallery article{
+    width: 15em;
+    height: 15em;
+}
+
+.gallery article .content{
+    object-fit:contain;
+    width: auto;
 }
 
 .contact_button {

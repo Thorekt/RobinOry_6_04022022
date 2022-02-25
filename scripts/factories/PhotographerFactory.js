@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 class PhotographerFactory {
   constructor(data) {
     const {
@@ -10,9 +11,8 @@ class PhotographerFactory {
     this.tagline = tagline;
     this.price = price;
     this.portrait = portrait;
-
+    // eslint-disable-next-line no-undef
     this.templateModel = new TemplateFactory();
-
     this.picture = `assets/photographers/${portrait}`;
   }
 
@@ -20,6 +20,7 @@ class PhotographerFactory {
     const article = this.templateModel.getUserCardTemplate();
     article.setAttribute('onclick', `window.location.href = "photographer.html?id=${this.id}"`);
     article.querySelector('img').setAttribute('src', this.picture);
+    article.querySelector('img').setAttribute('alt', this.name);
     article.querySelector('h2').textContent = this.name;
     article.querySelector('.location').textContent = `${this.city}, ${this.country}`;
     article.querySelector('.tagline').textContent = this.tagline;
@@ -29,9 +30,11 @@ class PhotographerFactory {
 
   getUserPageDOM() {
     const section = this.templateModel.getUserPageTemplate();
+    section.querySelector('img').setAttribute('src', this.picture);
+    section.querySelector('img').setAttribute('alt', this.name);
     section.querySelector('h2').textContent = this.name;
-    section.querySelector('.location').textContent = this.name;
-    section.querySelector('.tagline').textContent = this.name;
+    section.querySelector('.location').textContent = `${this.city}, ${this.country}`;
+    section.querySelector('.tagline').textContent = this.tagline;
     return section;
   }
 }
