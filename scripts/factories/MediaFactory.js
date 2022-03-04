@@ -34,10 +34,8 @@ class MediaFactory {
       article.querySelector('video').setAttribute('src', this.content);
       article.querySelector('video').setAttribute('alt', this.title);
     }
-    article.querySelector('h3').textContent = this.name;
-    article.querySelector('.title').textContent = `${this.city}, ${this.country}`;
-    article.querySelector('.tagline').textContent = this.tagline;
-    article.querySelector('.price').textContent = `${this.price}€/jour`;
+    article.querySelector('h3').textContent = this.title;
+    article.querySelector('.likes').textContent = this.likes;
     return (article);
   }
 }

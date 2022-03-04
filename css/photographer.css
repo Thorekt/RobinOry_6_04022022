@@ -2,16 +2,21 @@
     display: none;
 }
 
+main{
+    margin-right: 100px;
+    margin-left: 100px;
+}
+
 .photograph_header {
     background-color: #FAFAFA;
     height: 300px;
-    margin: 0 100px;
+    margin-bottom: 1em;
 }
 
 .photograph_header div{    
     display: flex;
     flex-direction: row-reverse;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     height: 100%;
 }
@@ -20,6 +25,23 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: flex-start;
+}
+
+.photograph_header .info h2{
+    color: #D3573C;
+    font-size: 64px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.photograph_header .info .location{
+    color: #901C1C;
+    font-size: 24px;
+}
+
+.photograph_header .info .tagline{
+    font-size: 18px;
 }
 
 .photograph_header img{ 
@@ -33,17 +55,34 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-     
+    justify-content: space-between;
 }
 
 .gallery article{
-    width: 15em;
-    height: 15em;
+    width: 30em;
+    display: flex;
+    flex-direction: column;
 }
 
-.gallery article .content{
-    object-fit:contain;
-    width: auto;
+.gallery .content{
+    object-fit:cover;
+    width: 100%;
+    height: 30em;
+    border-radius: 0.7em;
+}
+.gallery .description{    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;   
+    color: #901C1C;
+    font-size: 24px;
+    margin-top: 0.5em;
+    margin-bottom: 2em;
+}
+
+.description h3{
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 .contact_button {
@@ -58,6 +97,58 @@
     border-radius: 5px;
     cursor: pointer;
 }
+
+.sorting{
+    margin-bottom: 1em;
+    font-size: 18px;
+    display: flex;
+}
+
+.dropdown, .dropdown-open{
+    position: relative;
+    margin-left: 1em;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    border: none;
+    width: 10em;
+    background-color: #901C1C;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.dropdown a, .dropdown .fa-angle-up {
+    display: none;
+}
+
+.dropdown a{
+    margin-left: 1em;
+    margin-top: 1em;  
+    margin-bottom: 1em;
+}
+
+.dropdown i{
+    position: absolute;
+    right: 1em;
+    top: 1.2em;
+}
+
+.dropdown .selected{
+    display: block;
+}
+
+.dropdown-open a, .dropdown-open .fa-angle-up {
+    display: block;
+}
+.dropdown-open .fa-angle-down {
+    display: none;
+}
+
+.dropdown-open .selected{
+    order: 1;
+}
+
 
 .modal {
     border-radius: 5px;
