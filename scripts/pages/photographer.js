@@ -51,4 +51,8 @@ async function init() {
   displayData(photographer, photographerMedias);
 }
 
+function displayDropdown() {
+
+}
+
 init();
