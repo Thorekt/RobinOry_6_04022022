@@ -18,7 +18,7 @@ class TemplateFactory {
   getUserPageTemplate() {
     const template = document.createElement('div');
     template.innerHTML = `<img>    
-      <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+      <button class="contact_button" onclick="displayContactModal()">Contactez-moi</button>
       <div class="info">
         <h2>N/A</h2>
         <span class="location">N/A</span>
@@ -44,7 +44,7 @@ class TemplateFactory {
   // eslint-disable-next-line class-methods-use-this
   getMediaCardVidTemplate() {
     const template = document.createElement('article');
-    template.innerHTML = `<video class="content" type="video/mp4"></video>        
+    template.innerHTML = `<video class="content" type="video/mp4" controls autoplay></video>        
     <div class="description">
     <h3>N/A</h3>        
     <div>
@@ -60,13 +60,13 @@ class TemplateFactory {
     const template = document.createElement('div');
     template.innerHTML = `<div class="sorting">
     <span>Trier par</span>
-    <div class="dropdown">
-    <a class="selected" id="popularity">Popularité</a>
-    <a id="date">Date</a>
-    <a id="title">Titre</a>
+    <select class="dropdown">
+    <option selected id="popularity">Popularité</option>
+    <option id="date">Date</option>
+    <option id="title">Titre</option>
     <i class="fas fa-solid fa-angle-down"></i>
     <i class="fas fa-solid fa-angle-up"></i>
-    </div>
+    </select>
     </div>
     <div class="gallery"></div>
     `;

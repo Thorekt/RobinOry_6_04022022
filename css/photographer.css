@@ -159,8 +159,9 @@ main{
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    padding: 35px;
-    margin: auto;
+   top:0;
+    padding: 35px; 
+    position: absolute;
 }
 
 .modal header {

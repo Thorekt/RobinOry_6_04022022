@@ -45,14 +45,11 @@ async function init() {
   // Récupère les datas des photographes
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
-  const id = parseInt(urlParams.get('id'), 10);
-  const photographer = await getPhotographerFromApi(id);
-  const photographerMedias = await getPhotographerMediasFromApi(id);
+  this.id = parseInt(urlParams.get('id'), 10);
+  const photographer = await getPhotographerFromApi(this.id);
+  const photographerMedias = await getPhotographerMediasFromApi(this.id);
   displayData(photographer, photographerMedias);
 }
 
-function displayDropdown() {
-
-}
 
 init();
