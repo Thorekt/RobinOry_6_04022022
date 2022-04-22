@@ -8,7 +8,10 @@
       href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap"
       rel="stylesheet"
     />
-    <script src="https://kit.fontawesome.com/3f886b6a5c.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/3f886b6a5c.js"
+      crossorigin="anonymous"
+    ></script>
     <title>Fisheye - photographe</title>
   </head>
 
@@ -70,10 +73,20 @@
     <div id="lightbox_modal">
       <div class="wrapper">
         <div>
-          <i class="fa fa-angle-left" onClick="previousMedia();"></i>
+          <div class="previousMedia">
+            <i class="fa fa-angle-left"></i>
+          </div>
         </div>
         <div>
           <img class="lightbox_img" src="" alt="" />
+          <video
+            class="lightbox_vid"
+            type="video/mp4"
+            controls=""
+            autoplay=""
+            src=""
+            alt=""
+          ></video>
         </div>
         <div>
           <img
@@ -81,7 +94,9 @@
             src="assets/icons/close.svg"
             onclick="closeLightboxModal()"
           />
-          <i class="fa fa-angle-right" onClick="nextMedia();"></i>
+          <div class="nextMedia">
+            <i class="fa fa-angle-right"></i>
+          </div>
         </div>
       </div>
     </div>

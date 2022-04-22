@@ -33,7 +33,7 @@ class MediaFactory {
       article.querySelector('video').setAttribute('alt', this.title);
     }
     article.addEventListener('click', () => {
-      displayLightboxModal(this);
+      displayLightboxModal(this.id);
     });
     article.querySelector('h3').textContent = this.title;
     article.querySelector('.likes').textContent = this.likes;
