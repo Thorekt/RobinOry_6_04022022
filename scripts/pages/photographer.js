@@ -1,4 +1,19 @@
+/* eslint-disable eqeqeq */
 const JSON = '/data/photographers.json';
+
+function popularitySorting(mediaA, mediaB) {
+  return mediaA.likes - mediaB.likes;
+}
+
+function dateSorting(mediaA, mediaB) {
+  const dateA = Date.parse(mediaA.date);
+  const dateB = Date.parse(mediaB.date);
+  return dateA - dateB;
+}
+
+function titleSorting(mediaA, mediaB) {
+  return mediaA.title.localeCompare(mediaB.title);
+}
 
 async function getPhotographerFromApi(id) {
   // Penser à remplacer par les données récupérées dans le json
@@ -7,7 +22,7 @@ async function getPhotographerFromApi(id) {
   const photographer = await photographersApi.getPhotographer(id);
 
   // et bien retourner le tableau photographers seulement une fois
-  return (photographer);
+  return photographer;
 }
 
 async function getPhotographerMediasFromApi(id) {
@@ -17,7 +32,7 @@ async function getPhotographerMediasFromApi(id) {
   const photographerMedias = await photographersApi.getPhotographerMedias(id);
 
   // et bien retourner le tableau photographers seulement une fois
-  return (photographerMedias);
+  return photographerMedias;
 }
 
 async function displayHeader(photographer) {
@@ -29,11 +44,10 @@ async function displayHeader(photographer) {
 }
 
 async function displayContent(photographerMedias) {
-  const photographersContent = document.querySelector('.photograph_content');
   // eslint-disable-next-line no-undef
   const galleryModel = new GalleryFactory(photographerMedias);
   const galleryDOM = galleryModel.getGalleryDom();
-  photographersContent.appendChild(galleryDOM);
+  this.photographersContent.appendChild(galleryDOM);
 }
 
 async function displayData(photographer, photographerMedias) {
@@ -43,13 +57,34 @@ async function displayData(photographer, photographerMedias) {
 
 async function init() {
   // Récupère les datas des photographes
+  this.photographersContent = document.querySelector('.photograph_content');
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
   this.id = parseInt(urlParams.get('id'), 10);
   const photographer = await getPhotographerFromApi(this.id);
-  const photographerMedias = await getPhotographerMediasFromApi(this.id);
-  displayData(photographer, photographerMedias);
+  this.photographerMedias = await getPhotographerMediasFromApi(this.id);
+  this.photographerMedias.sort(popularitySorting);
+  displayData(photographer, this.photographerMedias);
 }
 
+// eslint-disable-next-line no-unused-vars
+function sortContent(select) {
+  const sortType = select.value;
+  console.log(sortType);
+  if (sortType == 'popularity') {
+    this.photographerMedias.sort(popularitySorting);
+  } if (sortType == 'date') {
+    this.photographerMedias.sort(dateSorting);
+  } if (sortType == 'title') {
+    this.photographerMedias.sort(titleSorting);
+  } else {
+    this.photographerMedias.sort(popularitySorting);
+  }
 
+  console.log(this.photographerMedias);
+  console.log(this.photographersContent);
+  console.log(this.photographersContent.querySelector('.gallery'));
+  this.photographersContent.removeChild(this.photographersContent.querySelector('.gallery'));
+  displayContent(this.photographerMedias);
+}
 init();

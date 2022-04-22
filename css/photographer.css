@@ -2,6 +2,50 @@
     display: none;
 }
 
+#lightbox_modal{
+    display: none;
+    position: fixed;
+    top:0;
+    left:0;
+    right: 0;    
+    background-color: #fafafa86;
+    height: 100%;
+}
+
+#lightbox_modal ,.wrapper{
+    margin-left: auto;
+    margin-right: auto;
+    display:flex;
+    justify-content: center;
+}
+
+
+#lightbox_modal ,.wrapper > div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#lightbox_modal , i{
+    color: #901C1C;
+    font-size: 2em;
+}
+
+
+.modal_close{
+    position: absolute;
+    top: 0;
+    stroke: #901C1C;
+    fill: #901C1C;
+    /*temporaire*/
+    background-color: #312E2E;
+}
+
+.lightbox_img{
+    object-fit: contain;
+    max-height: 90vh;
+}
+
 main{
     margin-right: 100px;
     margin-left: 100px;

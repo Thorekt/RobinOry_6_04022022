@@ -1,10 +1,8 @@
 // eslint-disable-next-line no-unused-vars
 class MediaFactory {
   constructor(data) {
-    console.log(data);
-    const {
-      id, photographerId, title, image, likes, date, price, video,
-    } = data;
+    // eslint-disable-next-line object-curly-newline
+    const { id, photographerId, title, image, likes, date, price, video } = data;
 
     this.id = id;
     this.photographerId = photographerId;
@@ -34,8 +32,11 @@ class MediaFactory {
       article.querySelector('video').setAttribute('src', this.content);
       article.querySelector('video').setAttribute('alt', this.title);
     }
+    article.addEventListener('click', () => {
+      displayLightboxModal(this);
+    });
     article.querySelector('h3').textContent = this.title;
     article.querySelector('.likes').textContent = this.likes;
-    return (article);
+    return article;
   }
 }

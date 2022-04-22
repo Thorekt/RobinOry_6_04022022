@@ -58,16 +58,7 @@ class TemplateFactory {
   // eslint-disable-next-line class-methods-use-this
   getGalleryTemplate() {
     const template = document.createElement('div');
-    template.innerHTML = `<div class="sorting">
-    <span>Trier par</span>
-    <select class="dropdown">
-    <option selected id="popularity">Popularité</option>
-    <option id="date">Date</option>
-    <option id="title">Titre</option>
-    <i class="fas fa-solid fa-angle-down"></i>
-    <i class="fas fa-solid fa-angle-up"></i>
-    </select>
-    </div>
+    template.innerHTML = `
     <div class="gallery"></div>
     `;
     return (template);
