@@ -23,7 +23,6 @@ function displayLightboxModal(idMedia) {
 }
 
 // close modal form
-// eslint-disable-next-line no-unused-vars
 function closeLightboxModal() {
   this.lightboxModal.style.display = 'none';
 }
@@ -55,6 +54,10 @@ function initLightbox() {
 
   this.lightboxModal.querySelectorAll('.nextMedia').forEach(
     (element) => element.addEventListener('click', () => nextMedia()),
+  );
+
+  this.lightboxModal.querySelectorAll('.modal_close').forEach(
+    (element) => element.addEventListener('click', () => closeLightboxModal()),
   );
 }
 
