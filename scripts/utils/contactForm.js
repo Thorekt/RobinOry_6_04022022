@@ -46,3 +46,12 @@ function submitContactForm(element) {
   console.log(message);
   return true;
 }
+
+function initContact() {
+  this.contactModal = document.querySelector('#contact_modal');
+  this.contactModal.querySelectorAll('.modal_close').forEach(
+    (element) => element.addEventListener('click', () => closeContactModal()),
+  );
+}
+
+initContact();

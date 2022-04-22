@@ -2,6 +2,9 @@
     display: none;
 }
 
+#contact_modal .modal_close{
+}
+
 #lightbox_modal{
     display: none;
     position: fixed;
@@ -32,7 +35,7 @@
 }
 
 
-.modal_close{
+#lightbox_modal .modal_close{
     position: absolute;
     top: 0;
     stroke: #901C1C;
