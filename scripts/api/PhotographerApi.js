@@ -32,4 +32,5 @@ class PhotographerApi extends Api {
     const medias = result.filter((element) => element.photographerId === photographerId);
     return medias;
   }
+
 }

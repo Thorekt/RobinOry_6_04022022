@@ -35,24 +35,47 @@ async function getPhotographerMediasFromApi(id) {
   return photographerMedias;
 }
 
-async function displayHeader(photographer) {
+async function setTotalLike() {
+  this.totalLike = 0;
+  this.photographerMedias.forEach((element) => {
+    this.totalLike += element.likes;
+  });
+}
+
+async function displayHeader() {
   const photographersHeader = document.querySelector('.photograph_header');
   // eslint-disable-next-line no-undef
-  const photographerModel = new PhotographerFactory(photographer);
+  const photographerModel = new PhotographerFactory(this.photographer);
   const userCardDOM = photographerModel.getUserPageDOM();
   photographersHeader.appendChild(userCardDOM);
 }
 
-async function displayContent(photographerMedias) {
+async function displayContent() {
   // eslint-disable-next-line no-undef
-  const galleryModel = new GalleryFactory(photographerMedias);
+  const galleryModel = new GalleryFactory(this.photographerMedias);
   const galleryDOM = galleryModel.getGalleryDom();
   this.photographersContent.appendChild(galleryDOM);
 }
 
-async function displayData(photographer, photographerMedias) {
-  displayHeader(photographer);
-  displayContent(photographerMedias);
+async function displayTotalLike() {
+  document.querySelector('#total_like').innerHTML = this.totalLike;
+}
+
+async function displayData() {
+  displayHeader();
+  displayContent();
+  displayTotalLike();
+}
+
+async function like(element) {
+  if (element.classList.contains('liked')) {
+    element.classList.remove('liked');
+    this.totalLike -= 1;
+  } else {
+    element.classList.add('liked');
+    this.totalLike += 1;
+  }
+  displayTotalLike();
 }
 
 async function init() {
@@ -61,10 +84,18 @@ async function init() {
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
   this.id = parseInt(urlParams.get('id'), 10);
-  const photographer = await getPhotographerFromApi(this.id);
+  this.photographer = await getPhotographerFromApi(this.id);
   this.photographerMedias = await getPhotographerMediasFromApi(this.id);
   this.photographerMedias.sort(popularitySorting);
-  displayData(photographer, this.photographerMedias);
+
+  setTotalLike();
+  displayData();
+
+  document.querySelectorAll('article i').forEach((element) => {
+    element.addEventListener('click', function () {
+      like(this);
+    });
+  });
 }
 
 // eslint-disable-next-line no-unused-vars
@@ -72,19 +103,16 @@ function sortContent(select) {
   const sortType = select.value;
   console.log(sortType);
   if (sortType == 'popularity') {
-    this.photographerMedias.sort(popularitySorting);
+    this.photographerMedias = this.photographerMedias.sort(popularitySorting);
   } if (sortType == 'date') {
-    this.photographerMedias.sort(dateSorting);
+    this.photographerMedias = this.photographerMedias.sort(dateSorting);
   } if (sortType == 'title') {
-    this.photographerMedias.sort(titleSorting);
+    this.photographerMedias = this.photographerMedias.sort(titleSorting);
   } else {
-    this.photographerMedias.sort(popularitySorting);
+    this.photographerMedias = this.photographerMedias.sort(popularitySorting);
   }
 
-  console.log(this.photographerMedias);
-  console.log(this.photographersContent);
-  console.log(this.photographersContent.querySelector('.gallery'));
-  this.photographersContent.removeChild(this.photographersContent.querySelector('.gallery'));
-  displayContent(this.photographerMedias);
+  this.photographersContent.querySelector('.gallery').remove();
+  displayContent();
 }
 init();

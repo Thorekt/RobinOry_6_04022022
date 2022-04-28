@@ -58,9 +58,7 @@ class TemplateFactory {
   // eslint-disable-next-line class-methods-use-this
   getGalleryTemplate() {
     const template = document.createElement('div');
-    template.innerHTML = `
-    <div class="gallery"></div>
-    `;
+    template.className = 'gallery';
     return (template);
   }
 }

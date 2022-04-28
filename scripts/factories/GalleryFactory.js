@@ -21,7 +21,7 @@ class GalleryFactory {
   getGalleryDom() {
     const section = this.templateModel.getGalleryTemplate();
     this.medias.forEach((media) => {
-      section.querySelector('.gallery').appendChild(media.getMediaCardDOM());
+      section.appendChild(media.getMediaCardDOM());
     });
     return section;
   }

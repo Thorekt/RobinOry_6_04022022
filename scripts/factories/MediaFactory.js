@@ -27,14 +27,17 @@ class MediaFactory {
       article = this.templateModel.getMediaCardImgTemplate();
       article.querySelector('img').setAttribute('src', this.content);
       article.querySelector('img').setAttribute('alt', this.title);
+      article.querySelector('img').addEventListener('click', () => {
+        displayLightboxModal(this.id);
+      });
     } else {
       article = this.templateModel.getMediaCardVidTemplate();
       article.querySelector('video').setAttribute('src', this.content);
       article.querySelector('video').setAttribute('alt', this.title);
+      article.querySelector('video').addEventListener('click', () => {
+        displayLightboxModal(this.id);
+      });
     }
-    article.addEventListener('click', () => {
-      displayLightboxModal(this.id);
-    });
     article.querySelector('h3').textContent = this.title;
     article.querySelector('.likes').textContent = this.likes;
     return article;

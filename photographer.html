@@ -33,15 +33,22 @@
           </select>
         </div>
       </section>
+      <div class="photograph_stats">
+        <div>
+          <span id="total_like"></span>
+          <i class="fas fa-solid fa-heart"></i>
+        </div>
+        <div>
+          <span id="price"></span>
+          <span>€ / jour</span>
+        </div>
+      </div>
     </main>
     <div id="contact_modal">
       <div class="modal">
         <header>
           <h2>Contactez-moi</h2>
-          <img
-            class="modal_close"
-            src="assets/icons/close.svg"
-          />
+          <img class="modal_close" src="assets/icons/close.svg" />
           <script
             src="https://kit.fontawesome.com/3f886b6a5c.js"
             crossorigin="anonymous"
@@ -55,14 +62,14 @@
         >
           <div>
             <label for="first_name">Prénom</label>
-            <input type="text" id="first_name" />
+            <input type="text" name="first_name" id="first_name" />
             <label for="last_name">Nom</label>
-            <input type="text" id="last_name" />
+            <input type="text" name="last_name" id="last_name" />
             <label for="mail">Email</label>
-            <input type="mail" id="mail" />
+            <input type="mail" name="mail" id="mail" />
             <label for="message">Votre message</label>
             <textarea id="message"></textarea>
-            <input id="id" type="hidden" />
+            <input id="id" name="id" type="hidden" />
           </div>
           <button class="contact_button">Envoyer</button>
         </form>
@@ -88,10 +95,7 @@
           ></video>
         </div>
         <div>
-          <img
-            class="modal_close"
-            src="assets/icons/close.svg"
-          />
+          <img class="modal_close" src="assets/icons/close.svg" />
           <div class="nextMedia">
             <i class="fa fa-angle-right"></i>
           </div>
