@@ -101,12 +101,11 @@ async function init() {
 // eslint-disable-next-line no-unused-vars
 function sortContent(select) {
   const sortType = select.value;
-  console.log(sortType);
   if (sortType == 'popularity') {
     this.photographerMedias = this.photographerMedias.sort(popularitySorting);
-  } if (sortType == 'date') {
+  } else if (sortType == 'date') {
     this.photographerMedias = this.photographerMedias.sort(dateSorting);
-  } if (sortType == 'title') {
+  } else if (sortType == 'title') {
     this.photographerMedias = this.photographerMedias.sort(titleSorting);
   } else {
     this.photographerMedias = this.photographerMedias.sort(popularitySorting);
