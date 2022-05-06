@@ -11,11 +11,13 @@ class ContactForm {
     form.addEventListener('submit', () => {
       const submit = this.submitContactForm(form);
       if (!submit) {
+        // eslint-disable-next-line no-restricted-globals
         event.preventDefault();
       }
     }, false);
   }
 
+  // eslint-disable-next-line class-methods-use-this
   stringIsValidName(string) {
     return string
       .match(/^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u);
@@ -23,6 +25,7 @@ class ContactForm {
 
   // take a string
   // check if the string is a mail
+  // eslint-disable-next-line class-methods-use-this
   stringIsMail(string) {
     return string
       .toLowerCase()
