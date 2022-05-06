@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 // eslint-disable-next-line no-unused-vars
 class ContactForm {
   constructor(idPhotographer) {

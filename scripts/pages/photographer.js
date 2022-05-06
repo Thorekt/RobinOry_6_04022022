@@ -16,7 +16,6 @@ function titleSorting(mediaA, mediaB) {
 }
 
 async function getPhotographerFromApi(id) {
-  // Penser à remplacer par les données récupérées dans le json
   // eslint-disable-next-line no-undef
   const photographersApi = new PhotographerApi(JSON);
   const photographer = await photographersApi.getPhotographer(id);
@@ -26,7 +25,6 @@ async function getPhotographerFromApi(id) {
 }
 
 async function getPhotographerMediasFromApi(id) {
-  // Penser à remplacer par les données récupérées dans le json
   // eslint-disable-next-line no-undef
   const photographersApi = new PhotographerApi(JSON);
   const photographerMedias = await photographersApi.getPhotographerMedias(id);
@@ -62,10 +60,15 @@ async function displayTotalLike() {
   document.querySelector('#total_like').innerHTML = this.totalLike;
 }
 
+async function displayPrice() {
+  document.querySelector('#price').innerHTML = this.photographer.price;
+}
+
 async function displayData() {
   displayHeader();
   displayContent();
   displayTotalLike();
+  displayPrice();
 }
 
 async function like(element) {

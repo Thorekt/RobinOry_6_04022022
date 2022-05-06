@@ -1,4 +1,4 @@
-class Index {
+class IndexPage {
   constructor() {
     this.JSON = '/data/photographers.json';
     this.photographersSection = document.querySelector('.photographer_section');
@@ -21,7 +21,6 @@ class Index {
   }
 
   async displayData(photographers) {
-    console.log(photographers);
     photographers.forEach((photographer) => {
       // eslint-disable-next-line no-undef
       const photographerModel = new PhotographerFactory(photographer);
@@ -32,4 +31,4 @@ class Index {
 }
 
 // eslint-disable-next-line no-unused-vars
-const index = new Index();
+const indexPage = new IndexPage();
