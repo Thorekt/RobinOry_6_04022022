@@ -196,7 +196,21 @@ main{
     order: 1;
 }
 
+.photograph_stats{
+    position: fixed;
+    bottom: 0;
+    right: 1.5em;
+    background-color: #DB8876;
+    display: flex;
+    flex-direction: row;
+    padding: 1em;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    justify-content: space-between;
+    gap: 3em;
 
+    border-radius: 0.25em 0.25em 0 0;
+}
 
 .modal {
     border-radius: 5px;

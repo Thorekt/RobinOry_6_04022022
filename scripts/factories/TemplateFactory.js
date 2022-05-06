@@ -18,7 +18,7 @@ class TemplateFactory {
   getUserPageTemplate() {
     const template = document.createElement('div');
     template.innerHTML = `<img>    
-      <button class="contact_button" onclick="displayContactModal()">Contactez-moi</button>
+      <button class="contact_button">Contactez-moi</button>
       <div class="info">
         <h2>N/A</h2>
         <span class="location">N/A</span>

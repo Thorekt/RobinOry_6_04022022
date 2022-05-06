@@ -48,6 +48,7 @@ async function displayHeader() {
   const photographerModel = new PhotographerFactory(this.photographer);
   const userCardDOM = photographerModel.getUserPageDOM();
   photographersHeader.appendChild(userCardDOM);
+  // eslint-disable-next-line no-undef
 }
 
 async function displayContent() {
@@ -83,9 +84,9 @@ async function init() {
   this.photographersContent = document.querySelector('.photograph_content');
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
-  this.id = parseInt(urlParams.get('id'), 10);
-  this.photographer = await getPhotographerFromApi(this.id);
-  this.photographerMedias = await getPhotographerMediasFromApi(this.id);
+  const id = parseInt(urlParams.get('id'), 10);
+  this.photographer = await getPhotographerFromApi(id);
+  this.photographerMedias = await getPhotographerMediasFromApi(id);
   this.photographerMedias.sort(popularitySorting);
 
   setTotalLike();
@@ -96,6 +97,8 @@ async function init() {
       like(this);
     });
   });
+
+  this.contactForm = new ContactForm(id);
 }
 
 // eslint-disable-next-line no-unused-vars
