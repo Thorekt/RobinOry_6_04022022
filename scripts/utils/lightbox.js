@@ -1,7 +1,6 @@
 function setMedia() {
   const media = this.photographerMedias.at(this.currentIndex);
   const src = `assets/photographers/${media.photographerId}/`;
-  console.log(media);
   if (typeof media.image !== 'undefined') {
     this.lightbox_img.src = src + media.image;
     this.lightbox_img.alt = media.title;
@@ -20,8 +19,6 @@ function setMedia() {
 // eslint-disable-next-line no-unused-vars
 function displayLightboxModal(idMedia) {
   this.lightboxModal.style.display = 'block';
-  console.log(idMedia);
-
   this.currentIndex = this.photographerMedias.indexOf(
     this.photographerMedias.find((element) => element.id === idMedia),
   );
@@ -58,13 +55,34 @@ function initLightbox() {
     (element) => element.addEventListener('click', () =>previousMedia()),
   );
 
+  document.addEventListener('keydown', (key) => {
+    console.log(key);
+    if (key.code === 'ArrowLeft') {
+      previousMedia();
+    }
+  });
+
   this.lightboxModal.querySelectorAll('.nextMedia').forEach(
     (element) => element.addEventListener('click', () => nextMedia()),
   );
 
+  document.addEventListener('keydown', (key) => {
+    console.log(key);
+    if (key.code === 'ArrowRight') {
+      nextMedia();
+    }
+  });
+
   this.lightboxModal.querySelectorAll('.modal_close').forEach(
     (element) => element.addEventListener('click', () => closeLightboxModal()),
   );
+
+  document.addEventListener('keydown', (key) => {
+    console.log(key);
+    if (key.code === 'Escape') {
+      closeLightboxModal();
+    }
+  });
 }
 
 initLightbox();
