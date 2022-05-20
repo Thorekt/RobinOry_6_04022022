@@ -1,6 +1,6 @@
 class IndexPage {
   constructor() {
-    this.JSON = '/data/photographers.json';
+    this.JSON = './data/photographers.json';
     this.photographersSection = document.querySelector('.photographer_section');
 
     document.querySelectorAll('.logo').forEach((element) => {

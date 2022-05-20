@@ -1,5 +1,5 @@
 /* eslint-disable eqeqeq */
-const JSON = '/data/photographers.json';
+const JSON = './data/photographers.json';
 
 function popularitySorting(mediaA, mediaB) {
   return mediaA.likes - mediaB.likes;
