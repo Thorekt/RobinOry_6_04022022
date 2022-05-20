@@ -20,7 +20,7 @@ class PhotographerFactory {
     const article = this.templateModel.getUserCardTemplate();
     article.setAttribute('onclick', `window.location.href = "photographer.html?id=${this.id}"`);
     article.querySelector('img').setAttribute('src', this.picture);
-    article.querySelector('img').setAttribute('alt', this.name);
+    article.querySelector('img').setAttribute('alt', '');
     article.querySelector('h2').textContent = this.name;
     article.querySelector('.location').textContent = `${this.city}, ${this.country}`;
     article.querySelector('.tagline').textContent = this.tagline;

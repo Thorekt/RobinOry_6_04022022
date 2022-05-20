@@ -72,11 +72,14 @@ async function displayData() {
 }
 
 async function like(element) {
+  const likeSpan = element.parentNode.querySelector('span');
   if (element.classList.contains('liked')) {
     element.classList.remove('liked');
+    likeSpan.innerHTML = parseInt(likeSpan.innerHTML, 10) - 1;
     this.totalLike -= 1;
   } else {
     element.classList.add('liked');
+    likeSpan.innerHTML = parseInt(likeSpan.innerHTML, 10) + 1;
     this.totalLike += 1;
   }
   displayTotalLike();
