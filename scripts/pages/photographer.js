@@ -101,6 +101,13 @@ async function init() {
     });
   });
 
+  document.querySelectorAll('.logo').forEach((element) => {
+    element.addEventListener('click', () => {
+      document.location.href = './index.html';
+    });
+  });
+
+  // eslint-disable-next-line no-undef
   this.contactForm = new ContactForm(id);
 }
 

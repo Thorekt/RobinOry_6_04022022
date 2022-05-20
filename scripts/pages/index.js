@@ -2,6 +2,13 @@ class IndexPage {
   constructor() {
     this.JSON = '/data/photographers.json';
     this.photographersSection = document.querySelector('.photographer_section');
+
+    document.querySelectorAll('.logo').forEach((element) => {
+      element.addEventListener('click', () => {
+        document.location.href = './index.html';
+      });
+    });
+
     this.pageWorkflow();
   }
 
