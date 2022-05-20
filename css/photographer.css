@@ -211,12 +211,15 @@ form  textarea {
 
 #lightbox_modal{
     display: none;
+    border: none;
     position: fixed;
-    top:5vh;
+    top: 0;
     left:0;
     right: 0;    
     background-color: #fafafa86;
     height: 100%;
+    width: 100%;    
+    padding-top: 5vh;
 }
 
 #lightbox_modal .wrapper{
@@ -242,7 +245,7 @@ form  textarea {
 
 #lightbox_modal .modal_close {
     position: absolute;
-    top: 0;
+    top: 5vh;
 }
 
 

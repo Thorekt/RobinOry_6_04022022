@@ -22,7 +22,7 @@ class TemplateFactory {
                             <span class="location">N/A</span>
                             <span class="tagline">N/A</span>
                           </div>          
-                          <button class="contact_button">Contactez-moi</button>
+                          <button role="Contact Me" class="contact_button">Contactez-moi</button>
                           <img>`;
     return template;
   }
@@ -35,7 +35,7 @@ class TemplateFactory {
                             <h3>N/A</h3>        
                             <div>
                               <span class="likes">N/A</span>
-                              <i class="fas fa-solid fa-heart"></i>
+                              <i class="fas fa-solid fa-heart" aria-label="likes"></i>
                             </div>
                           </div>`;
     return template;
