@@ -32,7 +32,7 @@ class PhotographerFactory {
     const section = this.templateModel.getUserPageTemplate();
     section.querySelector('img').setAttribute('src', this.picture);
     section.querySelector('img').setAttribute('alt', this.name);
-    section.querySelector('h2').textContent = this.name;
+    section.querySelector('h1').textContent = this.name;
     section.querySelector('.location').textContent = `${this.city}, ${this.country}`;
     section.querySelector('.tagline').textContent = this.tagline;
     return section;

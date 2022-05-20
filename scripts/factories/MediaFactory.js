@@ -38,7 +38,7 @@ class MediaFactory {
         displayLightboxModal(this.id);
       });
     }
-    article.querySelector('h3').textContent = this.title;
+    article.querySelector('h2').textContent = this.title;
     article.querySelector('.likes').textContent = this.likes;
     return article;
   }

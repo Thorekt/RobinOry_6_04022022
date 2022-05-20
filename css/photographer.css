@@ -24,7 +24,7 @@ main{
     align-items: flex-start;
 }
 
-.photograph_header .info h2{
+.photograph_header .info h1{
     color: #D3573C;
     font-size: 64px;
     margin-top: 0;
@@ -76,7 +76,7 @@ main{
     margin-bottom: 2em;
 }
 
-.description h3{
+.description h2{
     margin-top: 0;
     margin-bottom: 0;
 }

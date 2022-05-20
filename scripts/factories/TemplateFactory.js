@@ -18,7 +18,7 @@ class TemplateFactory {
   getUserPageTemplate() {
     const template = document.createElement('div');
     template.innerHTML = `<div class="info">
-                            <h2>N/A</h2>
+                            <h1>N/A</h1>
                             <span class="location">N/A</span>
                             <span class="tagline">N/A</span>
                           </div>          
@@ -32,10 +32,10 @@ class TemplateFactory {
     const template = document.createElement('article');
     template.innerHTML = `<img class="content">
                           <div class="description">
-                            <h3>N/A</h3>        
+                            <h2>N/A</h2>        
                             <div>
                               <span class="likes">N/A</span>
-                              <i class="fas fa-solid fa-heart" aria-label="likes"></i>
+                              <i class="fas fa-solid fa-heart" aria-label="likes" aria-hidden="false"></i>
                             </div>
                           </div>`;
     return template;
@@ -46,10 +46,10 @@ class TemplateFactory {
     const template = document.createElement('article');
     template.innerHTML = `<video class="content" type="video/mp4"></video>        
                           <div class="description">
-                            <h3>N/A</h3>        
+                            <h2>N/A</h2>        
                             <div>
                               <span class="likes">N/A</span>
-                              <i class="fas fa-solid fa-heart"></i>
+                              <i class="fas fa-solid fa-heart" aria-label="likes" aria-hidden="false"></i>
                             </div>
                           </div>`;
     return template;
