@@ -126,6 +126,9 @@ main{
     border-radius: 5px;
     text-align: left;
 }
+.dropdown button:hover,.dropdown button:focus{
+    background-color: #901C1C;
+}
 
 .dropdown button i{
     position: absolute;
