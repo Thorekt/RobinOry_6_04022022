@@ -23,15 +23,14 @@
       <section class="photograph_header"></section>
       <section class="photograph_content">
         <div class="sorting">
-          <label for="sort_content">Trier par</label>
+          <span for="sort_content">Trier par</span>
           <div class="dropdown">
-            <button id="sort_content" ><span>Popularité</span> <i class="fa fa-angle-down open"></i><i class="fa fa-angle-up close"></i></button>
-            <ul class="dropdown-options" role="listbox">
+            <button role="button" aria-haspopup="listbox" aria-expanded id="sort_content"><span>Popularité</span> <i class="fa fa-angle-down open"></i><i class="fa fa-angle-up close"></i></button>
+            <ul class="dropdown-options" role="listbox" aria-activedescendant aria-selected aria-labelledby="sort_content">
               <li data-value="popularity" role="option" class="selected">Popularité</li>
               <li data-value="date" role="option">Date</li>
               <li data-value="title" role="option">Titre</li>
             </ul>
-
           </div>
         </div>
       </section>
@@ -50,7 +49,7 @@
       <div class="modal">
         <header>
           <h2>Contactez-moi</h2>
-          <img class="modal_close" src="assets/icons/close.svg" />
+          <img class="modal_close" src="assets/icons/close.svg" alt="Close contact"/>
           <script
             src="https://kit.fontawesome.com/3f886b6a5c.js"
             crossorigin="anonymous"
