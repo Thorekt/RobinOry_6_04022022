@@ -25,6 +25,7 @@ class PhotographerFactory {
     article.querySelector('.location').textContent = `${this.city}, ${this.country}`;
     article.querySelector('.tagline').textContent = this.tagline;
     article.querySelector('.price').textContent = `${this.price}€/jour`;
+    article.setAttribute('role', 'link');
     return (article);
   }
 
