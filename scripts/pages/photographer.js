@@ -85,6 +85,67 @@ async function like(element) {
   displayTotalLike();
 }
 
+function sortContent(sortType) {
+  if (sortType == 'popularity') {
+    this.photographerMedias = this.photographerMedias.sort(popularitySorting);
+  } else if (sortType == 'date') {
+    this.photographerMedias = this.photographerMedias.sort(dateSorting);
+  } else if (sortType == 'title') {
+    this.photographerMedias = this.photographerMedias.sort(titleSorting);
+  } else {
+    this.photographerMedias = this.photographerMedias.sort(popularitySorting);
+  }
+
+  this.photographersContent.querySelector('.gallery').remove();
+  displayContent();
+}
+
+function openDropdown() {
+  this.dropdownOptions.classList.add('open');
+  this.dropdownButton.classList.add('open');
+  this.dropdownButton.querySelector('.open').style.display = 'none';
+  this.dropdownButton.querySelector('.close').style.display = '';
+}
+
+function closeDropdown() {
+  this.dropdownOptions.classList.remove('open');
+  this.dropdownButton.classList.remove('open');
+  this.dropdownButton.querySelector('.open').style.display = '';
+  this.dropdownButton.querySelector('.close').style.display = 'none';
+}
+
+function toggleDropdown() {
+  if (this.classList.contains('open')) {
+    closeDropdown();
+  } else {
+    openDropdown();
+  }
+}
+
+function selectOptionDropdown(element) {
+  console.log(element);
+  this.dropdownOptions.querySelector('.selected').classList.remove('selected');
+  element.classList.add('selected');
+  this.dropdownButton.querySelector('span').innerHTML = element.innerHTML;
+  sortContent(element.dataset.value);
+  closeDropdown();
+}
+
+function initDropdown() {
+  this.dropdownOptions = document.querySelector('.dropdown-options');
+  this.dropdownButton = document.querySelector('.dropdown #sort_content');
+
+  this.dropdownButton.addEventListener('click', toggleDropdown);
+
+  this.dropdownOptions.querySelectorAll('li').forEach((element) => {
+    element.addEventListener('click', function () {
+      selectOptionDropdown(this);
+    });
+  });
+
+  this.dropdownButton.querySelector('.close').style.display = 'none';
+}
+
 async function init() {
   // Récupère les datas des photographes
   this.photographersContent = document.querySelector('.photograph_content');
@@ -112,22 +173,7 @@ async function init() {
 
   // eslint-disable-next-line no-undef
   this.contactForm = new ContactForm(id);
+  initDropdown();
 }
 
-// eslint-disable-next-line no-unused-vars
-function sortContent(select) {
-  const sortType = select.value;
-  if (sortType == 'popularity') {
-    this.photographerMedias = this.photographerMedias.sort(popularitySorting);
-  } else if (sortType == 'date') {
-    this.photographerMedias = this.photographerMedias.sort(dateSorting);
-  } else if (sortType == 'title') {
-    this.photographerMedias = this.photographerMedias.sort(titleSorting);
-  } else {
-    this.photographerMedias = this.photographerMedias.sort(popularitySorting);
-  }
-
-  this.photographersContent.querySelector('.gallery').remove();
-  displayContent();
-}
 init();

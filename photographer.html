@@ -23,14 +23,16 @@
       <section class="photograph_header"></section>
       <section class="photograph_content">
         <div class="sorting">
-          <label for="sort_ontent">Trier par</span>
-          <select id="sort_ontent" aria-level="8" class="dropdown" onchange="sortContent(this)">
-            <option value="popularity">Popularité</option>
-            <option value="date">Date</option>
-            <option value="title">Titre</option>
-            <i class="fas fa-solid fa-angle-down"></i>
-            <i class="fas fa-solid fa-angle-up"></i>
-          </select>
+          <label for="sort_content">Trier par</label>
+          <div class="dropdown">
+            <button id="sort_content" ><span>Popularité</span> <i class="fa fa-angle-down open"></i><i class="fa fa-angle-up close"></i></button>
+            <ul class="dropdown-options" role="listbox">
+              <li data-value="popularity" role="option" class="selected">Popularité</li>
+              <li data-value="date" role="option">Date</li>
+              <li data-value="title" role="option">Titre</li>
+            </ul>
+
+          </div>
         </div>
       </section>
       <div class="photograph_stats">
