@@ -49,26 +49,12 @@ async function displayHeader() {
   // eslint-disable-next-line no-undef
 }
 
-async function displayContent() {
-  // eslint-disable-next-line no-undef
-  const galleryModel = new GalleryFactory(this.photographerMedias);
-  const galleryDOM = galleryModel.getGalleryDom();
-  this.photographersContent.appendChild(galleryDOM);
-}
-
 async function displayTotalLike() {
   document.querySelector('#total_like').innerHTML = this.totalLike;
 }
 
 async function displayPrice() {
   document.querySelector('#price').innerHTML = this.photographer.price;
-}
-
-async function displayData() {
-  displayHeader();
-  displayContent();
-  displayTotalLike();
-  displayPrice();
 }
 
 async function like(element) {
@@ -83,6 +69,26 @@ async function like(element) {
     this.totalLike += 1;
   }
   displayTotalLike();
+}
+
+async function displayContent() {
+  // eslint-disable-next-line no-undef
+  const galleryModel = new GalleryFactory(this.photographerMedias);
+  const galleryDOM = galleryModel.getGalleryDom();
+  this.photographersContent.appendChild(galleryDOM);
+
+  document.querySelectorAll('article i').forEach((element) => {
+    element.addEventListener('click', function () {
+      like(this);
+    });
+  });
+}
+
+async function displayData() {
+  displayHeader();
+  displayContent();
+  displayTotalLike();
+  displayPrice();
 }
 
 function sortContent(sortType) {
@@ -159,11 +165,7 @@ async function init() {
   setTotalLike();
   displayData();
 
-  document.querySelectorAll('article i').forEach((element) => {
-    element.addEventListener('click', function () {
-      like(this);
-    });
-  });
+ 
 
   document.querySelectorAll('.logo').forEach((element) => {
     element.addEventListener('click', () => {
