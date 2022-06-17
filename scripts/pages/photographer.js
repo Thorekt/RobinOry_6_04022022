@@ -148,7 +148,6 @@ function initDropdown() {
   });
 
   document.addEventListener('keydown', (key) => {
-    console.log(document.activeElement);
     if ((key.code === 'Space' || key.code === 'Enter') && document.activeElement.classList.contains('option')) {
       selectOptionDropdown(document.activeElement);
     }

@@ -38,6 +38,13 @@ class MediaFactory {
         displayLightboxModal(this.id);
       });
     }
+    article.setAttribute('tabindex', '0');
+    document.addEventListener('keydown', (key) => {
+      if ((key.code === 'Space' || key.code === 'Enter') && document.activeElement === article) {
+        displayLightboxModal(this.id);
+      }
+    });
+
     article.querySelector('h2').textContent = this.title;
     article.querySelector('.likes').textContent = this.likes;
     return article;
