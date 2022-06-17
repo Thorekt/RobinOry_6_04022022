@@ -20,12 +20,22 @@ class PhotographerFactory {
     const article = this.templateModel.getUserCardTemplate();
     article.setAttribute('onclick', `window.location.href = "photographer.html?id=${this.id}"`);
     article.querySelector('img').setAttribute('src', this.picture);
-    article.querySelector('img').setAttribute('alt', '');
+    article.querySelector('img').setAttribute('alt', this.name);
     article.querySelector('h2').textContent = this.name;
     article.querySelector('.location').textContent = `${this.city}, ${this.country}`;
     article.querySelector('.tagline').textContent = this.tagline;
     article.querySelector('.price').textContent = `${this.price}€/jour`;
     article.setAttribute('role', 'link');
+    article.setAttribute('tabindex', '0');
+    article.addEventListener('click', () => {
+      document.location.href = 'photographer.html?id='.concat(this.id);
+    });
+
+    document.addEventListener('keydown', (key) => {
+      if ((key.code === 'Space' || key.code === 'Enter') && document.activeElement === article) {
+        document.location.href = 'photographer.html?id='.concat(this.id);
+      }
+    });
     return (article);
   }
 

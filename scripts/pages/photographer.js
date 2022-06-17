@@ -46,7 +46,6 @@ async function displayHeader() {
   const photographerModel = new PhotographerFactory(this.photographer);
   const userCardDOM = photographerModel.getUserPageDOM();
   photographersHeader.appendChild(userCardDOM);
-  // eslint-disable-next-line no-undef
 }
 
 async function displayTotalLike() {
@@ -163,8 +162,6 @@ async function init() {
 
   setTotalLike();
   displayData();
-
- 
 
   document.querySelectorAll('.logo').forEach((element) => {
     element.addEventListener('click', () => {

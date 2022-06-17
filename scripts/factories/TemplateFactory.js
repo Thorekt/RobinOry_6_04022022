@@ -35,7 +35,7 @@ class TemplateFactory {
                             <h2>N/A</h2>        
                             <div>
                               <span class="likes">N/A</span>
-                              <i class="fas fa-solid fa-heart" aria-label="likes" aria-hidden="false"></i>
+                              <i class="fas fa-solid fa-heart"aria-hidden="false"></i>
                             </div>
                           </div>`;
     return template;
@@ -49,7 +49,7 @@ class TemplateFactory {
                             <h2>N/A</h2>        
                             <div>
                               <span class="likes">N/A</span>
-                              <i class="fas fa-solid fa-heart" aria-label="likes" aria-hidden="false"></i>
+                              <i class="fas fa-solid fa-heart" role="figure" aria-label="likes" aria-hidden="false"></i>
                             </div>
                           </div>`;
     return template;
