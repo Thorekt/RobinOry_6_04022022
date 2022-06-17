@@ -76,7 +76,7 @@ async function displayContent() {
   const galleryDOM = galleryModel.getGalleryDom();
   this.photographersContent.appendChild(galleryDOM);
 
-  document.querySelectorAll('article i').forEach((element) => {
+  document.querySelectorAll('article em').forEach((element) => {
     element.addEventListener('click', function () {
       like(this);
     });

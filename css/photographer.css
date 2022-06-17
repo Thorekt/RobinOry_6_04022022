@@ -130,7 +130,7 @@ main{
     background-color: #901C1C;
 }
 
-.dropdown button i{
+.dropdown button em{
     position: absolute;
     top:22px;
     right:12px;
@@ -283,7 +283,7 @@ form  textarea {
     justify-content: center;
 }
 
-#lightbox_modal i{
+#lightbox_modal em{
     color: #901C1C;
     font-size: 4em;
 }
