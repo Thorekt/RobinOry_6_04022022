@@ -5,13 +5,11 @@ function setMedia() {
     this.lightbox_img.src = src + media.image;
     this.lightbox_img.alt = media.title;
     this.lightbox_img.style.display = '';
-    this.lightbox_vid.src = null;
     this.lightbox_vid.style.display = 'none';
   } else if (typeof media.video !== 'undefined') {
     this.lightbox_vid.src = src + media.video;
     this.lightbox_vid.alt = media.title;
     this.lightbox_vid.style.display = '';
-    this.lightbox_img.src = null;
     this.lightbox_img.style.display = 'none';
   }
 }
@@ -56,7 +54,6 @@ function initLightbox() {
   );
 
   document.addEventListener('keydown', (key) => {
-    console.log(key);
     if (key.code === 'ArrowLeft') {
       previousMedia();
     }
@@ -67,7 +64,6 @@ function initLightbox() {
   );
 
   document.addEventListener('keydown', (key) => {
-    console.log(key);
     if (key.code === 'ArrowRight') {
       nextMedia();
     }
@@ -78,7 +74,6 @@ function initLightbox() {
   );
 
   document.addEventListener('keydown', (key) => {
-    console.log(key);
     if (key.code === 'Escape') {
       closeLightboxModal();
     }

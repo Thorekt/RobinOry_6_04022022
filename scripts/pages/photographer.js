@@ -129,7 +129,6 @@ function toggleDropdown() {
 }
 
 function selectOptionDropdown(element) {
-  console.log(element);
   this.dropdownOptions.querySelector('.selected').classList.remove('selected');
   element.classList.add('selected');
   this.dropdownButton.querySelector('span').innerHTML = element.innerHTML;
